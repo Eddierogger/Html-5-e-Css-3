@@ -1,0 +1,158 @@
+CLI - Command Line Interface
+	GUI - Graffic User Interface
+
+	GIT - não possui interface gráfica
+
+
+WINDOWS
+
+	- CD 			(caminha para uma pasta especifíca no SO)
+	- DIR 			(etorna uma lista com o conteúdo contido naquele diretório)
+	- MKDIR			(Criar pasta)
+	- del			(deleta arquivos de uma pasta)
+	- rmdir /S /Q		(deleta a pasta do diretório)
+	- cls			(limpar a tela do terminar)
+	tecla TAB		(auto completa)	
+	- echo			(exibir em tela)
+	- >			(redicionador de fluxo)
+
+	Unix
+
+	- CD			(caminha para uma pasta especifíca no SO)
+	- LS			(Retorna uma lista com o conteúdo contido naquele diretório)
+	- MKDIR			(Criar pasta)
+	- rm -rf		(deleta a pasta do diretório)
+	- clear	ou CTRL+L	(limpar a tela do terminar)
+	- tecla TAB		(auto completa)
+	- echo			(exibir em tela)
+	- >			(redicionador de fluxo)
+	- Sudo Su		(comando para permissão administrativa)
+
+
+	Ex: echo hello > hello.txt
+
+
+Instalado o GIT
+
+	baixar na url: https://git-scm.com/
+
+	Obs: - durante a instalação deixar marcado as opções do WINDOWS EXPLORER INTEGRATION
+
+		º Git Bash Here
+		º Git GUI Here
+	
+	Após verificar se as opções acima se encontram marcadas NEXT até o FINISH.
+
+
+Entendendo como o GIT funciona por baixo dos panos
+
+	- SHA1
+
+	A sigla SHA significa SECURE HASH ALGORITHM (Agoritmo de Hash Seguro), é um conjuto de  
+	funções hash criptográficas projetadas pela NSA (Agência de Segurança Nacional dos EUA).
+
+	A encriptação gera conjunto de caracteres identificador com 40 dígitos.E é usado para identificar arquivos.
+
+	É uma forma curta de representar um arquivo.
+
+		Ex
+
+		1: 
+			1- echo "ola mundo" | openssl sha1
+     		2- > (stdin)= f9fc856e559b950175f2b7cd7dad61facbe58e7b
+
+		Exemplo utilizando o GIT BASH:
+	
+		Abrir o Git bash here de dentro da pasta ao qual está o arquivo que será gerado o HASH e entrar com o comando na plataforma conforme abaixo:
+
+		openssl sha1 (nome do arquivo com extensão)
+
+			Após dar enter será gerado o HASH SHA1 do referido arquivo.
+
+	- Objetos fundamentais / Objetos internos do GIT.
+
+		Esses são os tres objetos internos do GIT:
+	
+		º BLOBS
+ 
+		é uma bolha, ou seja, é um bloco básico e possui metadados e seu própio sha1
+
+		ºTREES
+
+		arvore é a estrutura que armazena diversos blobs e tbm pode apontar para outras arvores e tbm possui seu sha1 próprio.
+		
+
+		ºCOMMITS
+
+		ele é o objeto que vai juntar todas as informações. 
+	
+		Refere-se ao processo de tornar permanente um conjunto de alterações, ou seja,de efetivar as alterações. Um uso comum é a conclusão de uma transação
+	
+		Todo Commits possuem SHA1 de seus arquivos de metadados de blobs, trees e sendo assim todo e qualquer arquivo que seja alterados será alterado também sem metadado e gerará um novo SHA1, pois toda a estrutura é alterada.
+
+	
+	- Sistema distribuído SEGURO
+
+		É um sistema que possui múltiplas cópias de si mesmo em diferentes locais.
+		
+	- Segurança
+		
+		Porque seus objetos esão ligados de maneira encadeada e de difícil alteração.
+
+
+Iniciando o Git e criando um commit
+	
+	- Iniciar o GIT
+		
+		git init (comando para inicializar um repositório git na pasta em questão)
+			ele inicializar/cria um diretório.
+			
+				TRACKED (são arquivos que o GIT possui conhecimento)
+				
+					Unmodified (arquivo não modifificado)
+					Modified   (arquivo modifificado)
+					Staged	   (é onde fica os arquivos de estão esperando para ser alocados em outros estágios)
+				
+				UNTRACKED (são arquivos que o GIT não possui conhecimento)
+		
+			Servidor
+				
+				Remote Repository
+			
+			Ambiente de desenvolvimento
+				
+				Working Directory > "git add" -> Staging Area > "git commit -m" -> Local Repository
+				
+		git add (adiciona a o repositório para o Staging area)
+			
+			git add * ou git add (nome do arquivo) (nome da pasta)
+			exemplo:
+				git add strogonoff.md receita
+			
+		git commit
+		
+			git commit -m "(passar uma mensagem para o commit)"
+			Exemplo
+				git commit -m "cria pasta receita, move arquivo receita"
+		
+		
+	- Iniciar o versionamento
+	
+	- Criar um commit
+
+
+
+Comandos
+
+- git status (verifica o status do repositório)
+- git config --list (verifica as configurações do git no PC)
+caso seja verificado que nas configurações possui a configuração remote origin setado para sua conta no GITHUB, é necessário executar o comando abaixo para 
+empurrar o código e em seguida será solicitado as credenciais do GITHUB.
+- git push origin master (comando para enviar do repositório local para o repositório remoto)
+- git pull origin master (comando para baixar do repositório remoto para o repositório local)
+- git config --global user.name "Your Name"  (inseri o nickname do github)
+- git config --global user.email you@example.com (inseri o email do github)
+- git config --global --unset user.email (retira o email do github que se encontra nas confiurações do git já configurados)
+- git config --global --unset user.name (retira o nickname do github que se encontra nas confiurações do git já configurados)
+- git commit -m "(passar uma mensagem para o commit)"
+- git clone (URL) - comando para clonar repositório do GITHUB
